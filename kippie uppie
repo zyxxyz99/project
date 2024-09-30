@@ -1,0 +1,144 @@
+#include<bits/stdc++.h>
+#include<graphics.h>
+using namespace std;
+
+int main()
+{
+	initwindow(900,650,"abc");
+	int x1=getmaxx()/2,x2=x1+200,y1=getmaxy()-100,y2,pause=0,shutx=0,shuty=0;
+	int x=getmaxx()/2,y=30;
+	int xinc=0,yinc=10,xdir=xinc,ydir=yinc,xtemp=0,ytemp=0,yspd=15;
+	long long time=0,time2=0;
+	char xy[59];
+	char a;
+	a=getch();
+	if(a=='1')
+	{
+	while(1)
+	{
+		int act=0;
+		sprintf(xy,"time %d %d %d",yspd,ydir,time);
+		outtextxy(100,100,xy);
+		if(pause==1)
+		{
+		//	xtemp=xinc;
+		//	ytemp=yinc;
+		//	xinc=0;
+		//	yinc=0;
+			if(GetAsyncKeyState(VK_ESCAPE)){
+			pause=0;
+			delay(100);
+			cleardevice();
+		}
+			continue;
+		}
+		else if(pause==0)
+		{
+		//	if(xtemp!=0)xinc=xtemp;
+		//	if(ytemp!=0)yinc=ytemp;
+			if(GetAsyncKeyState(VK_ESCAPE))pause=1;
+			if(GetAsyncKeyState(VK_SPACE))act=1;
+			if(act==0){
+			line(x1,y1,x1-3,y1+8);//handle left
+			line(x1-3,y1+8,x1+57,y1+30);//handle bottom
+			line(x1,y1,x1+188,y1+68);//bat top
+			line(x1+186,y1+76,x1+188,y1+68);//bat toe
+			line(x1+186,y1+76,x1+163,y1+80);//bat toe back
+			line(x1+57,y1+30,x1+163,y1+80);//bat back
+			time2=0;
+		}
+			else if(act==1){
+			line(x1,y1,x1+200,y1);
+			line(x1,y1,x1,y1+10);
+			line(x1,y1+10,x1+50,y1+10);
+			line(x1+50,y1+10,x1+180,y1+20);
+			line(x1+180,y1+20,x1+200,y1+10);
+			line(x1+200,y1,x1+200,y1+10);
+			time2++;
+		}
+			if(ydir<0&&time%2==0)ydir++;
+    		if(ydir>=0&&ydir<yspd&&time%2==0)ydir++;
+    		if(shuty==0)
+    		{
+			if(act==1&&x>=x1&&x<=x2&&y>=y1-20&&y<y1+10&&time2<10)
+			{
+			if(x>=x1&&x<=x1+50)
+			{
+				
+				ydir=5;
+				if(y>y1-20&&y<=y1)xdir=-1;
+				if(y>y1&&y<y1+10)xdir=-3;
+				shuty=10;
+			}
+			if(x>x1+50&&x<=x1+100)
+			{
+				ydir=yspd;
+				if(y>y1-20&&y<=y1)xdir=-2;
+				if(y>y1&&y<y1+10)xdir=-4;
+				shuty=10;
+			}
+			if(x>x1+100&&x<=x2-50)
+			{
+				ydir=yspd;
+				if(y>y1-20&&y<=y1)xdir=0;
+				if(y>y1&&y<y1+10)xdir=3;
+				shuty=10;
+			}
+			if(x>x2-50&&x<=x2)
+			{
+				yspd=yspd;
+				if(y>y1-20&&y<=y1)xdir=3;
+				if(y>y1&&y<y1+10)xdir=6;
+				shuty=10;
+			}
+				ydir*=-1;
+				time=0;
+			}
+		}
+		if(shuty>0)shuty--;
+		if(shutx==0)
+        {
+        	if(x<=15)
+        	{	
+        	xdir*=-1;
+        	shutx=2;
+        }
+        	else if(x >= getmaxx()-15)
+        	{
+        	xdir*=-1;
+        	shutx=2;
+        }
+        
+		}
+		if(shutx>0)shutx--;
+		setbkcolor(YELLOW);
+        setcolor(RED);
+        setfillstyle(SOLID_FILL, WHITE);
+        circle(x, y, 5);
+        floodfill(x, y, RED);
+        x=x+xdir;
+        y=y+ydir;
+        if(pause==0)
+        {
+        if(x2<getmaxx()){
+		if(GetAsyncKeyState(VK_RIGHT))
+		{
+			x1+=10;
+			x2+=10;
+		}
+	}
+		if(x1>0){
+		if(GetAsyncKeyState(VK_LEFT))
+		{
+			x1-=10;
+			x2-=10;
+		}
+}
+		}
+		}
+		delay(30);
+		time++;
+		cleardevice();
+	}
+}
+}
