@@ -41,7 +41,6 @@ int main()
 int menu()
 {	
 	initwindow(900,650,"Hand Cricket");
-	char xy[50];
 	int end=0,opt=0,cnt=0;
 	while(1)
 	{
@@ -73,15 +72,11 @@ int menu()
 		{
 			if(opt==1)
 			{	
-				delay(500);
-				end=HCmenu();
-				
-			
+				end=HCmenu();			
 			}
 			else if(opt==2)
 			{
-				end=KUmenu();
-				
+				end=KUmenu();		
 			}
 			else if(opt==3)return 0;
 			
@@ -181,8 +176,7 @@ int HCmenu()
 			{
 				end=help();
 			}
-			else if(opt==3)end =1;
-			
+			else if(opt==3)end =1;			
 		}
 		break;
 		}
@@ -282,49 +276,31 @@ int HCplay(){
 
 int help()
 {
-	
-	POINT curPos; 
 	cleardevice();
 	int brk;
 	readimagefile("Help1.jpg",0,0,900,650);
-	rectangle(700,400,800,500);
-	outtextxy(701,401,"return");
-	
 	while(1)
 	{
-	GetCursorPos(&curPos);
-	if(GetAsyncKeyState(VK_LBUTTON))
+	if(GetAsyncKeyState(VK_ESCAPE))
 		{
-			
-			if(curPos.x>699&&curPos.x<801&&curPos.y<501&&curPos.y>399)
-			{
 				cleardevice();
-				return 0;
-			}
+				return 0;			
 		}
 	}
 }
 int KpUphelp()
 {
-	
-	POINT curPos; 
 	cleardevice();
 	int brk;
 	readimagefile("Help1.jpg",0,0,900,650);
 	rectangle(700,400,800,500);
-	outtextxy(701,401,"return");
-	
+	outtextxy(701,401,"return");	
 	while(1)
 	{
-	GetCursorPos(&curPos);
-	if(GetAsyncKeyState(VK_LBUTTON))
-		{
-			
-			if(curPos.x>699&&curPos.x<801&&curPos.y<501&&curPos.y>399)
-			{
+	if(GetAsyncKeyState(VK_ESCAPE))
+		{			
 				cleardevice();
-				return 0;
-			}
+				return 0;		
 		}
 	}
 }
@@ -407,20 +383,13 @@ int hand(int run,int op)
 		else if(op==5)readimagefile("5.jpg",100,300,400,600);
 		else if(op==6)readimagefile("6.jpg",100,300,400,600);
 		delay(500);
-		rectangle(700,50,800,70);
-		POINT curPos;
-		curPos.x-=2;
-		curPos.y-=25;
+		
+		outtextxy(100,100,"Press space to continue");
 		while(1)
 		{
-		if(GetAsyncKeyState(VK_LBUTTON))
-		{
-			GetCursorPos(&curPos);
-			if(curPos.x>699&&curPos.x<801&&curPos.y<71&&curPos.y>49)
-			{
-				return 1;
-				
-			}
+		if(GetAsyncKeyState(VK_SPACE))
+		{			
+				return 1;		
 		}
 	}
 }
@@ -662,8 +631,8 @@ int play(int p1,int p2,int ct1,int ct2,int dl)
 		delay(2500);
 		cleardevice();
 	}
-	queue <int> q1;
-	int score[7]={0},sc,prc[7],pr,frnt,max,ov,bl,end=0;
+	queue <int> q1;//queue for storing last 5 balls
+	int score[7]={0},sc,prc[7],pr,frnt,max,end=0;//score stores frequency of the index(run)
 	double over1;
 	//1st innings
 	while(1)
@@ -729,7 +698,7 @@ int play(int p1,int p2,int ct1,int ct2,int dl)
 		else
 		{
 		op=rand()%3;
-		chnc=rand()%10;
+		chnc=rand()%10;//chance for bigger number
 		if(chnc>2)
 		op+=4;
 		else if(chnc<=2)
@@ -872,8 +841,8 @@ int play(int p1,int p2,int ct1,int ct2,int dl)
 			{
 				cleardevice();
 				sl=pause();
-				if(sl==1)return 1;
-				if(sl==0)
+				if(sl==1)return 1;//quit in the pause menu returns 1
+				if(sl==0)//resume in the pause menu return 0
 				{
 				ball1--;
 				}
@@ -908,7 +877,7 @@ delay(5000);
 cleardevice();
 wckt1=wicket1;
 wicket1=0;
-queue <int> q2;
+	queue <int> q2;
 	int score2[7]={0},sc2,prc2[7],pr2,frnt2,max2;
 	double over2;
 //	char xy[50];
@@ -1156,8 +1125,8 @@ while(1)
 		over2=(double)delv/6;
 		}
 		
-		rr1=(double)run1/over1;
-		rr2=(double)run2/over2;
+		rr1=(double)run1/over1;//run rate of team which batted first
+		rr2=(double)run2/over2;//run rate of team which batted second
 		if(pbf==1)
 		{
 		nr=rr1-rr2;
@@ -1201,14 +1170,13 @@ while(1)
 				flag(ct1,100,500,200,600);
 	
 				sprintf(res,"has won the match by %d runs",run1-run2);
-				outtextxy(250,500,res);
-		
+				outtextxy(250,500,res);		
 			}
 			else if(pbf==0)
 			{
 				win=p2;
 				flag(ct2,100,500,200,600);
-				sprintf(res,"has won the match by\n%d runs",run2-run1);
+				sprintf(res,"has won the match by %d runs",run1-run2);
 				outtextxy(250,500,res);
 		}
 		}
@@ -1228,7 +1196,7 @@ while(1)
 		sprintf(yz,"2nd innings:%d-%d",run2,wckt2);
 		outtextxy(250,300,yz);
 		
-		delay(2000);
+		delay(5000);
 		if(dl==0)
 		{
 		return 1;
@@ -1294,7 +1262,7 @@ double nr,nrr[4]={0};
         int cur[4]={0},wintmp[4],nrrtmp[4];
         wn=play(0,4-i,team[0],team[4-i],delv);
         if(wn==-2)return 1;
-        if(wn>=0)win[wn]+=2;
+        if(wn>=0)win[wn]+=3;
         else if(wn==-1)
         {
             win[0]+=1;
@@ -1327,11 +1295,11 @@ double nr,nrr[4]={0};
         delay(1000);
         nrr[c1pos]+=nr;
         nrr[c2pos]+=nr*(-1);
-        if(wnp>0)win[wnp]+=2;
+        if(wnp>0)win[wnp]+=3;
         else
         {
-            win[c1]+=1;
-            win[c2]+=1;
+            win[c1pos]+=1;
+            win[c2pos]+=1;
         }
         for(int i=0;i<4;i++)wintmp[i]=win[i];
         for(int i=0;i<4;i++)nrrtmp[i]=nrr[i];
@@ -1366,7 +1334,7 @@ double nr,nrr[4]={0};
             }
         }
         
-//        for(int i=0;i<4;i++)cout<<stnd[i]<<" "<<wintmp[i]<<" "<<nrrtmp[i]<<"\n";
+        for(int i=0;i<4;i++)cout<<stnd[i]<<" "<<wintmp[i]<<" "<<nrrtmp[i]<<"\n";
 //        char pos1[50],pos2[50],pos3[50],pos4[50];
 //        settextstyle(GOTHIC_FONT,HORIZ_DIR,3);
 //        flag(team[stnd[0]],100,100,200,200);
@@ -1869,6 +1837,7 @@ int delivery()
 			else run2+=op2;
 		}
 	}
+	//run1=1st innings run,run2=2nd innings run
 	if((bat==0&&run1>run2)||(bat==1&&run2>=target))win=p1;
 	else if((bat==1&&run1>run2)||(bat==0&&run2>=target))win=p2;
 	else if(run1==run2)win=-1;
@@ -1896,14 +1865,6 @@ int delivery()
 	}
 	cleardevice();
 	char xy[50],yz[50];
-//	if(bat==0)flag(c1,500,100,600,200);
-//	else if(bat==1)flag(c1,500,300,600,400);
-//	sprintf(xy,"1st:%d 2nd:%d",run1,run2);
-//	outtextxy(100,100,xy);
-//	if(bat==1)flag(c2,500,100,600,200);
-//	else if(bat==0)flag(c2,500,300,600,400);
-//	sprintf(yz,"%0.2lf",nr);
-//	outtextxy(100,500,yz);
 		if(bat==0)flag(c1,100,100,200,200);
 		else if(bat==1)flag(c1,100,300,200,400);
 		sprintf(xy,"1st innings:%d-%d",run1,wck1);
