@@ -48,8 +48,10 @@ int menu()
 {	
 	initwindow(900,650,"Hand Cricket");
 	int end=0,opt=0,cnt=0;
+	
 	while(1)
 	{
+		setcolor(WHITE);
 		delay(10);
 		cnt++;
 		if(cnt==2)opt=1;
@@ -191,7 +193,7 @@ int HCplay(){
 		break;
 		}
 	}
-
+}
 int help()
 {
 	cleardevice();
@@ -239,6 +241,7 @@ int KpUppause()
 	int opt=0,page=0,end=0,cnt=0;
 	while(1)
 	{
+		setcolor(WHITE);
 		delay(10);
 		cnt++;
 		if(cnt==5)opt=1;
@@ -337,6 +340,7 @@ int KUmenu()
 	int page=0,end=0,opt=0,cnt=0;
 	while(1)
 	{
+		setcolor(WHITE);
 		delay(100);
 		cnt++;
 		if(cnt==2)opt++;
@@ -376,7 +380,7 @@ int KUmenu()
 		break;
 		}
 	}
-
+}
 int KpUplevel()
 {
 		delay(10);
@@ -1860,13 +1864,9 @@ int KpUp(int dif)
 			if(ydir<0&&time%dec==0)ydir++;
     		if(ydir>=0&&ydir<yspd&&time%2==0)ydir++;
     		if(y<=10)ydir*=-1;
-    		if(act==1)
-    		{
-			if(shuty==0&&y>=y1-60&&y<y1&&time2<5)
+ 
+			if(act==1&&shuty==0&&y>y1-20&&y<=y1&&x>=x1&&x<=x2&&time2<5)
 			{
-			if(y>y1-20&&y<=y1)
-			{
-			if(x>=x1&&x<=x2){
 			
 			if(x>=x1&&x<=x1+50)
 			{			
@@ -1894,9 +1894,6 @@ int KpUp(int dif)
 				ydir*=-1;
 				shuty=20;
 				time=0;
-			}
-		}
-		}
 		}
 		if(shuty>0)shuty--;
 		if(shutx==0&&(x<=15||x >= getmaxx()-15))
