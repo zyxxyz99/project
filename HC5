@@ -49,9 +49,7 @@ int main()
 }
 int menu()
 {	
-	initwindow(900,650,"Hand Cricket");
 	int end=0,opt=0,cnt=0;
-	
 	while(1)
 	{
 		setcolor(WHITE);
@@ -71,8 +69,6 @@ int menu()
 			{
 				rectangle(190,490,610,610);
 			}
-//		while(1)
-//		{
 		delay(10);
 		if(GetAsyncKeyState(VK_DOWN)&&opt<3&&opt>0)
 		opt++;
@@ -94,10 +90,7 @@ int menu()
 			cnt=0;
 			opt=0;
 		}
-//		break;
-//		}
 	}
-//		}
 	}
 
 int HCmenu()
@@ -123,10 +116,7 @@ int HCmenu()
 			{
 				rectangle(190,490,610,610);
 			}
-//		while(kbhit())
-//		{
 			delay(10);
-		//cleardevice();
 		if(GetAsyncKeyState(VK_DOWN)&&opt<3&&opt>0)opt++;
 		
 		if(GetAsyncKeyState(VK_UP)&&opt>1)opt--;
@@ -145,14 +135,13 @@ int HCmenu()
 			}
 			else if(opt==3)end =1;			
 		}
-//		break;
-//		}
+
 	}
 }
 int HCplay(){
 	
 	delay(10);
-	int page=0,end=0,opt=0,cnt=0;
+	int end=0,opt=0,cnt=0;
 	while(1)
 	{
 		delay(10);
@@ -172,9 +161,6 @@ int HCplay(){
 			{
 				rectangle(190,490,610,610);
 			}
-//		while(kbhit())
-//		{
-		//cleardevice();
 		if(GetAsyncKeyState(VK_DOWN)&&opt<3&&opt>0)opt++;
 		if(GetAsyncKeyState(VK_UP)&&opt>1)opt--;
 		
@@ -193,14 +179,11 @@ int HCplay(){
 			}
 			else if(opt==3)end =1;
 		}
-//		break;
-//		}
+
 	}
 }
 int help()
 {
-	cleardevice();
-	int brk;
 	readimagefile("Help1.jpg",0,0,900,650);
 	while(1)
 	{
@@ -214,7 +197,6 @@ int help()
 
 int helpTR()
 {
-	cleardevice();
 	readimagefile("HelpTR.jpg",0,0,900,650);
 	while(1)
 	{
@@ -227,7 +209,6 @@ int helpTR()
 }
 int helpKpUp()
 {
-		cleardevice();
 	readimagefile("HelpKU.jpg",0,0,900,650);
 	while(1)
 	{
@@ -241,7 +222,7 @@ int helpKpUp()
 
 int KpUppause()
 {
-	int opt=0,page=0,end=0,cnt=0;
+	int opt=0,end=0,cnt=0;
 	while(1)
 	{
 		setcolor(WHITE);
@@ -266,9 +247,6 @@ int KpUppause()
 			{
 				rectangle(290,540,610,610);
 			}
-//		while(kbhit())
-//		{
-		//cleardevice();
 		if(GetAsyncKeyState(VK_DOWN)&&opt<4&&opt>0)opt++;
 		if(GetAsyncKeyState(VK_UP)&&opt>1)opt--;
 		
@@ -284,8 +262,6 @@ int KpUppause()
 			else if(opt==4)return 1;
 		}
 		delay(100);
-//		break;
-//		}
 	}
 }
 
@@ -305,10 +281,8 @@ int flag(int p1,int x1,int y1,int x2,int y2)
 }
 int hand(int run,int op)
 {
-//	initwindow(900,650,"Hand Cricket");
-//	cleardevice();
-//	POINT curPos;
-cleardevice();
+	
+	cleardevice();
 	outtextxy(500,200,"You :");
 	delay(200);
 	if(run==1)readimagefile("1.jpg",500,300,800,600);
@@ -342,7 +316,7 @@ int KUmenu()
 {
 		
 	delay(10);
-	int page=0,end=0,opt=0,cnt=0;
+	int end=0,opt=0,cnt=0;
 	while(1)
 	{
 		setcolor(WHITE);
@@ -363,9 +337,6 @@ int KUmenu()
 			{
 				rectangle(190,490,610,610);
 			}
-//		while(kbhit())
-//		{
-		//cleardevice();
 		if(GetAsyncKeyState(VK_DOWN)&&opt<3)opt++;
 		if(GetAsyncKeyState(VK_UP)&&opt>1)opt--;
 		
@@ -382,14 +353,12 @@ int KUmenu()
 			}
 			else if(opt==3)end =1;
 		}
-//		break;
-//		}
 	}
 }
 int KpUplevel()
 {
 		delay(10);
-	int page=0,end=0,opt=0,cnt=0;
+	int end=0,opt=0,cnt=0;
 	while(1)
 	{
 		delay(100);
@@ -410,9 +379,6 @@ int KpUplevel()
 			{
 				rectangle(190,490,610,610);
 			}
-//		while(kbhit())
-//		{
-		//cleardevice();
 		if(GetAsyncKeyState(VK_DOWN)&&opt<3)opt++;
 		if(GetAsyncKeyState(VK_UP)&&opt>1)opt--;
 		
@@ -435,8 +401,6 @@ int KpUplevel()
 				end=KpUp(3);
 			}
 		}
-//		break;
-//		}
 }
 }
 void name(int ct,int x,int y)
@@ -452,7 +416,7 @@ void name(int ct,int x,int y)
 	else if(ct==9)outtextxy(x,y,"(WI)");
 }
 int pause(){
-	int opt=0,page=0,end=0,cnt=0;
+	int opt=0,end=0,cnt=0;
 	while(1)
 	{
 		delay(10);
@@ -472,9 +436,6 @@ int pause(){
 			{
 				rectangle(190,490,610,610);
 			}
-//		while(kbhit())
-//		{
-		//cleardevice();
 		if(GetAsyncKeyState(VK_DOWN)&&opt<3&&opt>0)opt++;
 		if(GetAsyncKeyState(VK_UP)&&opt>1)opt--;
 		
@@ -489,16 +450,14 @@ int pause(){
 			else if(opt==3)end=1;
 		}
 		delay(100);
-//		break;
-//		}
 	}
 }
 int play(int p1,int p2,int ct1,int ct2,int dl)
 {
 	
-	int ts,ts0,tss=0,pbf=0,chnc,delv,target,wkc,run,run1=0,op,ball1=-1,wicket1=0,run2=0,ball2=-1,head=0;
-	char pl[50],opn[50],wck[50],runs[50],ball[50],scoreboard[100];
-	int plc,opc,page=0;
+	int ts,ts0,pbf=0,chnc,delv,target,wkc,plr,run1=0,op,ball1=-1,wicket=0,run2=0,ball2=-1,head=0;
+	char scoreboard[100];
+	int opc;
 	srand(time(0));
 	initwindow(900,650,"Hand Cricket");
 	cleardevice();
@@ -512,12 +471,11 @@ int play(int p1,int p2,int ct1,int ct2,int dl)
 	}
 	initwindow(900,650,"Hand Cricket");
 	cleardevice();
-	delay(500);
-
-//	closegraph();
-	
+	delay(500);	
 	flag(ct1,0,0,300,300);
 	flag(ct2,600,350,900,650);
+	settextstyle(GOTHIC_FONT,HORIZ_DIR,5);
+	outtextxy(400,320,"VS");
 	delay(1000);
 	cleardevice();
 	if(dl==0)
@@ -581,18 +539,18 @@ int play(int p1,int p2,int ct1,int ct2,int dl)
 		{
 			if(pbf==1)
 			{
-			q1.push(run);
-			score[run]++;
+			q1.push(plr);
+			score[plr]++;
 			}
-			if(run==op){
-			wicket1++;
+			if(plr==op){
+			wicket++;
 			}
-			else if(pbf==1)run1+=run;
+			else if(pbf==1)run1+=plr;
 			else if(pbf==0)run1+=op;
 		
 		}
 		if(ball1==delv)break;
-		else if(wicket1==5)break;
+		else if(wicket==5)break;
 		if(q1.size()>5)
 		{
 			frnt=q1.front();
@@ -627,18 +585,18 @@ int play(int p1,int p2,int ct1,int ct2,int dl)
 		op+=1;
 		}
 	int cnt=0,opt=0,brk=0;
-	run=0;
+	plr=0;
 	
 	while(1)
-	{	
-	delay(100);
-
+	{
+	delay(10);
+	
 	if(brk==1)break;
 	if(cnt==2)opt=1;
 	settextstyle(GOTHIC_FONT,HORIZ_DIR,4);
 	readimagefile("Choice.jpg",0,0,900,650);
-	over1=(ball1/6)+(float)(ball1%6)*0.1;
-	sprintf(scoreboard,"     %d-%d     Ov-%0.1f",run1,wicket1,over1);
+	over1=(ball1/6)+(double)(ball1%6)*0.1;
+	sprintf(scoreboard,"     %d-%d     Ov-%0.1f",run1,wicket,over1);
 	outtextxy(240,200,scoreboard);
 	rectangle(100,190,800,240);
 	if(pbf==1)outtextxy(100,50,"Batting now: Player");
@@ -685,8 +643,6 @@ int play(int p1,int p2,int ct1,int ct2,int dl)
 			}
 		while(1)
 		{
-	
-		//cleardevice();
 		if(GetAsyncKeyState(VK_DOWN)&&opt<4&&opt>0)
 		{
 			opt+=3;
@@ -727,33 +683,33 @@ int play(int p1,int p2,int ct1,int ct2,int dl)
 		{
 			if(opt==1)
 			{
-				run+=1;		
+				plr+=1;		
 			}
 			else if(opt==2)
 			{
-				run+=2;	
+				plr+=2;	
 			}
 			else if(opt==3)
 			{
-				run+=3;	
+				plr+=3;	
 			}
 			else if(opt==4)
 			{
-				run+=4;				
+				plr+=4;				
 			}
 			else if(opt==5)
 			{
-				run+=5;		
+				plr+=5;		
 			}
 			else if(opt==6)
 			{
-				run+=6;		
+				plr+=6;		
 			}
 			else 
 			{
 				continue;
 			}
-				sl=hand(run,op);
+				sl=hand(plr,op);
 				brk=1;
 				if(sl==1)	
 				break;
@@ -768,19 +724,18 @@ cleardevice();
 int wckt1,wckt2;
 readimagefile("inningsbrk.jpg",0,0,900,650);
 target=run1+1;
-char trgt[50];
+char trgt[50],runs[50];
 sprintf(runs,"1st Innings runs: %d",run1);
 outtextxy(50,200,runs);
 sprintf(trgt,"Target :%d",target);
 outtextxy(50,300,trgt);
 delay(5000);
 cleardevice();
-wckt1=wicket1;
-wicket1=0;
+wckt1=wicket;
+wicket=0;
 	queue <int> q2;
 	int score2[7]={0},sc2,prc2[7],pr2,frnt2,max2;
 	double over2;
-//	char xy[50];
 //2nd innings
 while(1)
 		{	
@@ -792,18 +747,18 @@ while(1)
 		{
 			if(pbf==0)
 			{
-			q2.push(run);
-			score2[run]++;
+			q2.push(plr);
+			score2[plr]++;
 			}
-			if(run==op){
-			wicket1++;
+			if(plr==op){
+			wicket++;
 			}
-			else if(pbf==0)run2+=run;
+			else if(pbf==0)run2+=plr;
 			else if(pbf==1)run2+=op;	
 		}
 		if(ball2==delv)break;
 		else if(target<=run2)break;
-		else if(wicket1==5)break;
+		else if(wicket==5)break;
 		if(q2.size()>5)
 		{
 			frnt2=q2.front();
@@ -829,13 +784,19 @@ while(1)
 		if(q2.size()==5&&max2==60&&prdct2%2!=0&&pbf==0)op=pos2;
 		else if(q2.size()==5&&max2==80&&prdct2%2==0&pbf==0)op=pos2;
 		else if(q2.size()==5&&max2==100&&prdct2<4&&pbf==0)op=pos2;	
-		else if(ball2==delv-1&&target-run2<=6)
+		else if(ball2==delv-1&&target-run2<6)
 		{
 			int dif1,dif2;
 			dif2=target-run2;
 			dif1=6-dif2+1;
 			op= rand()%dif1;
 			op+=dif2;
+		}
+		else if(target-run2==6)
+		{
+			int lbc=rand()%2;
+			if(lbc==0)op=6;
+			if(lbc==1)op=5;
 		}
 		else{
 		op=rand()%3;
@@ -847,10 +808,9 @@ while(1)
 		}
 	
 		int cnt=0,opt=0,brk=0;
-		run=0;
-		over2=(ball2/6)+(float)(ball2%6)*0.1;
+		over2=(ball2/6)+(double)(ball2%6)*0.1;
 	
-		run=0;
+		plr=0;
 	while(1)
 	{
 	delay(100);
@@ -859,7 +819,7 @@ while(1)
 	settextstyle(GOTHIC_FONT,HORIZ_DIR,4);
 	readimagefile("Choice.jpg",0,0,900,650);
 	
-	sprintf(scoreboard,"     %d-%d     Ov-%0.1f",run2,wicket1,over2);
+	sprintf(scoreboard,"     %d-%d     Ov-%0.1f",run2,wicket,over2);
 	outtextxy(240,200,scoreboard);
 	rectangle(100,190,800,240);
 	if(pbf==0)
@@ -949,33 +909,33 @@ while(1)
 		{
 			if(opt==1)
 			{
-				run+=1;		
+				plr+=1;		
 			}
 			else if(opt==2)
 			{
-				run+=2;	
+				plr+=2;	
 			}
 			else if(opt==3)
 			{
-				run+=3;	
+				plr+=3;	
 			}
 			else if(opt==4)
 			{
-				run+=4;				
+				plr+=4;				
 			}
 			else if(opt==5)
 			{
-				run+=5;		
+				plr+=5;		
 			}
 			else if(opt==6)
 			{
-				run+=6;		
+				plr+=6;		
 			}
 			else 
 			{
 				continue;
 			}
-				sl2=hand(run,op);
+				sl2=hand(plr,op);
 				brk=1;
 				if(sl2==1)	
 				break;
@@ -987,7 +947,7 @@ while(1)
 	
 }
 		cleardevice();
-		wckt2=wicket1;
+		wckt2=wicket;
 		double rr1,rr2,nr;
 		over1=(double)ball1/6;
 		over2=(double)ball2/6;
@@ -1064,11 +1024,11 @@ while(1)
 		else if(pbf==1)flag(ct2,100,300,200,400);
 		sprintf(yz,"2nd innings:%d-%d",run2,wckt2);
 		outtextxy(250,300,yz);
-		
+		int play;
 		delay(5000);
-		if(dl==0)
+		if(dl==0&&win==-1)
 		{
-		return 1;
+			play=KpUp(2);
 		}
 	else return win;		
 }
@@ -1077,6 +1037,7 @@ int Table()
 		char pos1[50],pos2[50],pos3[50],pos4[50];
 		cleardevice();
 		delay(100);
+		settextstyle(GOTHIC_FONT,HORIZ_DIR,4);
 		outtextxy(20,10,"<-(Esc)");
 		outtextxy(90,50,"Team                  Points");
 		flag(stt.p1c,100,100,200,200);
@@ -1201,22 +1162,7 @@ double nr,nrr[4]={0};
             }
         }
         
-        for(int i=0;i<4;i++)cout<<stnd[i]<<" "<<wintmp[i]<<" "<<nrrtmp[i]<<"\n";
-//        char pos1[50],pos2[50],pos3[50],pos4[50];
-//        settextstyle(GOTHIC_FONT,HORIZ_DIR,3);
-//        flag(team[stnd[0]],100,100,200,200);
-//        sprintf(pos1,"%d ",wintmp[0]);
-//        outtextxy(500,100,pos1);
-//        flag(team[stnd[1]],100,250,200,350);
-//        sprintf(pos2,"%d ",wintmp[1],nrrtmp[1]);
-//        outtextxy(500,200,pos2);
-//        flag(team[stnd[2]],100,400,200,500);
-//        sprintf(pos3,"%d ",wintmp[2]);
-//        outtextxy(500,300,pos3);
-//        flag(team[stnd[3]],100,550,200,650);
-//        sprintf(pos4,"%d",wintmp[3]);
-//        outtextxy(500,400,pos4);
-        delay(500);
+   
         closegraph();
         stt.p1c=team[stnd[0]];
         stt.p2c=team[stnd[1]];
@@ -1227,6 +1173,24 @@ double nr,nrr[4]={0};
         stt.p3p=wintmp[2];
         stt.p4p=wintmp[3];
     }
+    	initwindow(900,650,"Hand Cricket");
+        char pos1[50],pos2[50],pos3[50],pos4[50];
+        settextstyle(GOTHIC_FONT,HORIZ_DIR,4);
+		outtextxy(90,50,"Team                  Points");
+		flag(stt.p1c,100,100,200,200);
+        sprintf(pos1,"%d ",stt.p1p);
+        outtextxy(500,120,pos1);
+        flag(stt.p2c,100,250,200,350);
+        sprintf(pos2,"%d ",stt.p2p);
+        outtextxy(500,270,pos2);
+        flag(stt.p3c,100,400,200,500);
+        sprintf(pos3,"%d ",stt.p3p);
+        outtextxy(500,420,pos3);
+        flag(stt.p4c,100,550,200,650);
+        sprintf(pos4,"%d",stt.p4p);
+        outtextxy(500,570,pos4);
+        delay(5000);
+        closegraph();
         int final[2],p1,p2;
         final[0]=stnd[0];
         final[1]=stnd[1];
@@ -1252,7 +1216,7 @@ double nr,nrr[4]={0};
 
 int TRpause()
 {
-	int opt=0,page=0,end=0,cnt=0;
+	int opt=0,end=0,cnt=0;
 	while(1)
 	{
 		delay(10);
@@ -1276,9 +1240,6 @@ int TRpause()
 			{
 				rectangle(290,540,610,610);
 			}
-//		while(kbhit())
-//		{
-		//cleardevice();
 		if(GetAsyncKeyState(VK_DOWN)&&opt<4&&opt>0)opt++;
 		if(GetAsyncKeyState(VK_UP)&&opt>1)opt--;
 		
@@ -1294,8 +1255,6 @@ int TRpause()
 			else if(opt==4)return 1;
 		}
 		delay(100);
-//		break;
-//		}
 	}
 }
 
@@ -1403,9 +1362,6 @@ int country(int plc,int plc2,int plc3)
 			rectangle(600,500,700,600);
 			floodfill(650,550,WHITE);
 		}
-//		while(kbhit())
-//		{
-		//cleardevice();
 		if(GetAsyncKeyState(VK_DOWN)&&opt<7&&opt>0)opt+=3;
 		if(GetAsyncKeyState(VK_UP)&&opt>3)opt-=3;
 		if(GetAsyncKeyState(VK_RIGHT)&&opt<9)opt++;
@@ -1450,8 +1406,7 @@ int country(int plc,int plc2,int plc3)
 				return opt;
 			}
 		}
-//		break;
-//		}
+
 		page=1-page;
 	}
 	
@@ -1474,8 +1429,6 @@ int toss()
 			{
 				rectangle(565,390,685,510);
 			}
-//		while(kbhit())
-//		{
 		delay(10);
 		if(GetAsyncKeyState(VK_LEFT)&&opt==2)
 		opt--;
@@ -1493,8 +1446,6 @@ int toss()
 				return 0;		
 			}
 		}
-//		break;
-//		}
 	}		
 }
 int tossWin()
@@ -1514,8 +1465,6 @@ int tossWin()
 			{
 				rectangle(590,340,810,510);
 			}
-//		while(kbhit())
-//		{
 		delay(10);
 		if(GetAsyncKeyState(VK_LEFT)&&opt==2)
 		opt--;
@@ -1533,15 +1482,13 @@ int tossWin()
 				return 0;		
 			}
 		}
-//		break;
-//		}
 	}		
 }
 
 int delivery()
 {
 	delay(10);
-	int end=0,opt=0,cnt=0,delv=0;
+	int end=0,opt=0,cnt=0;
 	while(1)
 	{
 		delay(10);
@@ -1560,8 +1507,6 @@ int delivery()
 			{
 				rectangle(190,490,610,610);
 			}
-//		while(kbhit())
-//		{
 		if(GetAsyncKeyState(VK_DOWN)&&opt<3&&opt>0)opt++;
 		if(GetAsyncKeyState(VK_UP)&&opt>1)opt--;
 		
@@ -1569,7 +1514,7 @@ int delivery()
 		{
 			if(opt==1)
 			{
-				return 3;
+				return 2;
 			}
 			else if(opt==2)
 			{
@@ -1580,8 +1525,6 @@ int delivery()
 				return 60;
 			}
 		}
-//		break;
-//		}
 	}
 }
  int plpc(int p1,int p2,int c1,int c2,int delv)
@@ -1589,6 +1532,12 @@ int delivery()
 	int bat,ball1=-1,ball2=-1,wck1=0,wck2=0,run1=0,run2=0,op1,op2,win=0;
 	double over1,over2,nr,rr1,rr2;
 	srand(time(0));
+	cleardevice();
+	flag(c1,0,0,300,300);
+	flag(c2,600,350,900,650);
+	settextstyle(GOTHIC_FONT,HORIZ_DIR,5);
+	outtextxy(400,320,"VS");
+	delay(1000);
 	int toss=rand()%2;
 	if(toss==0)bat=0;
 	else bat=1;
@@ -1657,6 +1606,7 @@ int delivery()
 	}
 	cleardevice();
 	char xy[50],yz[50];
+	settextstyle(GOTHIC_FONT,HORIZ_DIR,4);
 		if(bat==0)flag(c1,100,100,200,200);
 		else if(bat==1)flag(c1,100,300,200,400);
 		sprintf(xy,"1st innings:%d-%d",run1,wck1);
@@ -1698,7 +1648,7 @@ int delivery()
 			{
 				win=p2;
 				flag(c2,100,500,200,600);
-				sprintf(res,"has won the match by\n%d runs",run2-run1);
+				sprintf(res,"has won the match by %d runs",run1-run2);
 				outtextxy(250,500,res);
 		}
 		}
@@ -1712,12 +1662,17 @@ int delivery()
 	return win;
 }
 
-int KpUp(int dif)
+int KpUp(int dif,int sng)
 {
-	initwindow(900,650,"Kippie Uppie");
-	char xy[59];
-	char a;
-	int b1,b2,b3,b4,dec,yspd;
+	srand(0);
+	initwindow(900,650,"Keepie Uppie");
+	char xy[100];
+	int b1,b2,b3,b4,dec,yspd,target;
+	if(sng==1)
+	{
+		target=rand()%500;
+		target+=500;
+	}
 	int page=0,end=0;
 		if(dif==1)
 	{
@@ -1755,13 +1710,19 @@ int KpUp(int dif)
 	{
 		
 		int act=0;
-//		setactivepage(page);
-//	   	setvisualpage(1-page);
 	   	cleardevice();
 	   	setbkcolor(WHITE);
 	   	settextstyle(GOTHIC_FONT,HORIZ_DIR,2);
+	   	if(sng==0)
+		{
 		sprintf(xy,"Score: %d",score);
 		outtextxy(50,50,xy);
+		}
+		else
+		{
+		sprintf(xy,"Score: %d target: %d",score);
+		outtextxy(50,50,xy);
+		}
 			if(GetAsyncKeyState(VK_ESCAPE))
 			{
 				end=KpUppause();
@@ -1799,6 +1760,7 @@ int KpUp(int dif)
             {
             	break;			
 			}
+			else if(score>=target)break;
 			if(ydir<0&&time%dec==0)ydir++;
     		if(ydir>=0&&ydir<yspd&&time%2==0)ydir++;
     		if(y<=10)
