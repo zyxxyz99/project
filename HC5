@@ -1210,6 +1210,7 @@ double nr,nrr[4]={0};
                 p2=final[i];
             }
             wn=play(p1,p2,team[p1],team[p2],delv);
+            initwindow(900,650,"Hand Cricket");
 			if(wn==0)
 			{
 				readimagefile("trwin",0,0,900,650);
@@ -1217,12 +1218,11 @@ double nr,nrr[4]={0};
 			else if(wn==-1){
             	wn=team[final[0]];
 			}
-            
+            else
             flag(wn,0,0,900,650);
             delay(5000);
             cleardevice();
-			delay(5000);
-			cleardevice();
+			
         }
         else
         {
