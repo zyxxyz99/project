@@ -302,7 +302,9 @@ int hand(int run,int op)
 		else if(op==6)readimagefile("6.jpg",100,300,400,600);
 		delay(500);
 		if(run==op)
-		outtextxy(300,500,"Wicket");
+		settextstyle(GOTHIC_FONT,HORIZ_DIR,3);
+		if(run==op)
+		outtextxy(100,150,"Wicket");
 		outtextxy(100,100,"Press space to continue");
 		while(1)
 		{
@@ -972,7 +974,6 @@ while(1)
 		stt.nrr=nr;
 		}
 		readimagefile("MatchOver.jpg",0,0,900,650);
-      	cleardevice();
 		int win,winct;
 		char res[100];
 		if(target<=run2)
@@ -1174,6 +1175,7 @@ double nr,nrr[4]={0};
         stt.p3p=wintmp[2];
         stt.p4p=wintmp[3];
     }
+    	
     	initwindow(900,650,"Hand Cricket");
         char pos1[50],pos2[50],pos3[50],pos4[50];
         settextstyle(GOTHIC_FONT,HORIZ_DIR,4);
@@ -1204,16 +1206,28 @@ double nr,nrr[4]={0};
                 p2=final[i];
             }
             wn=play(p1,p2,team[p1],team[p2],delv);
-			
+			if(wn==0)
+			{
+				readimagefile("trwin",0,0,900,650);
+			}
+			delay(5000);
+			cleardevice();
         }
         else
         {
 			initwindow(900,650,"Hand Cricket");
             wn=plpc(final[0],final[1],team[final[0]],team[final[1]],delv);
+            if(wn==-1){
+            	wn=team[final[0]];
+			}
+            cleardevice();
+            flag(wn,0,0,900,650);
+            delay(5000);
+            cleardevice();
         }
         int winner=wn;
-		cleardevice();		
-}
+        
+    }
 
 int TRpause()
 {
@@ -1515,7 +1529,7 @@ int delivery()
 		{
 			if(opt==1)
 			{
-				return 2;
+				return 12;
 			}
 			else if(opt==2)
 			{
