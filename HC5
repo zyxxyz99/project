@@ -2,7 +2,7 @@
 #include<iostream>
 #include<time.h>
 #include<queue>
-#include<bits/stdc++.h>
+
 
 using namespace std;
 
@@ -35,7 +35,7 @@ int pauseKpUp();
 int HCplay();
 int Table();
 int TRpause();
-int KpUp(int);
+int KpUp(int,int);
 int KpUphelp();
 int KpUppause();
 int tossWin();
@@ -390,17 +390,17 @@ int KpUplevel()
 			{
 				delay(200);
 				closegraph();
-				end = KpUp(1);
+				end = KpUp(1,0);
 			}
 			else if(opt==2)
 			{
 				closegraph();
-				end=KpUp(2);
+				end=KpUp(2,0);
 			}
 			else if(opt==3)
 			{
 				closegraph();
-				end=KpUp(3);
+				end=KpUp(3,0);
 			}
 		}
 }
@@ -1025,8 +1025,12 @@ while(1)
 		else if(pbf==1)flag(ct2,100,300,200,400);
 		sprintf(yz,"2nd innings:%d-%d",run2,wckt2);
 		outtextxy(250,300,yz);
-		int play;
+		int pl;
 		delay(5000);
+		if(dl==0&&win==-1)
+		{
+			pl=KpUp(2,1);
+		}
 		if(dl==0)
 		{
 			return 1;
@@ -1210,6 +1214,13 @@ double nr,nrr[4]={0};
 			{
 				readimagefile("trwin",0,0,900,650);
 			}
+			else if(wn==-1){
+            	wn=team[final[0]];
+			}
+            
+            flag(wn,0,0,900,650);
+            delay(5000);
+            cleardevice();
 			delay(5000);
 			cleardevice();
         }
@@ -1677,13 +1688,18 @@ int delivery()
 	return win;
 }
 
-int KpUp(int dif)
+int KpUp(int dif,int sng)
 {
 	srand(0);
 	initwindow(900,650,"Keepie Uppie");
 	char xy[100];
 	int b1,b2,b3,b4,dec,yspd,target;
-
+	
+	if(sng==1)
+	{
+		target=rand()%300;
+		target+=300;
+	}
 	int page=0,end=0;
 		if(dif==1)
 	{
@@ -1767,7 +1783,10 @@ int KpUp(int dif)
             {
             	break;			
 			}
-		
+			if(sng==1&&score>=target)
+			{
+				break;
+			}
 			if(ydir<0&&time%dec==0)ydir++;
     		if(ydir>=0&&ydir<yspd&&time%2==0)ydir++;
     		if(y<=10)
