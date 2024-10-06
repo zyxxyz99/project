@@ -1026,10 +1026,11 @@ while(1)
 		outtextxy(250,300,yz);
 		int play;
 		delay(5000);
-		if(dl==0&&win==-1)
+		if(dl==0)
 		{
-			play=KpUp(2);
+			return 1;
 		}
+		
 	else return win;		
 }
 int Table()
@@ -1662,17 +1663,13 @@ int delivery()
 	return win;
 }
 
-int KpUp(int dif,int sng)
+int KpUp(int dif)
 {
 	srand(0);
 	initwindow(900,650,"Keepie Uppie");
 	char xy[100];
 	int b1,b2,b3,b4,dec,yspd,target;
-	if(sng==1)
-	{
-		target=rand()%500;
-		target+=500;
-	}
+
 	int page=0,end=0;
 		if(dif==1)
 	{
@@ -1713,16 +1710,12 @@ int KpUp(int dif,int sng)
 	   	cleardevice();
 	   	setbkcolor(WHITE);
 	   	settextstyle(GOTHIC_FONT,HORIZ_DIR,2);
-	   	if(sng==0)
-		{
+	   	
+	
 		sprintf(xy,"Score: %d",score);
 		outtextxy(50,50,xy);
-		}
-		else
-		{
-		sprintf(xy,"Score: %d target: %d",score);
-		outtextxy(50,50,xy);
-		}
+	
+	
 			if(GetAsyncKeyState(VK_ESCAPE))
 			{
 				end=KpUppause();
@@ -1760,7 +1753,7 @@ int KpUp(int dif,int sng)
             {
             	break;			
 			}
-			else if(score>=target)break;
+		
 			if(ydir<0&&time%dec==0)ydir++;
     		if(ydir>=0&&ydir<yspd&&time%2==0)ydir++;
     		if(y<=10)
